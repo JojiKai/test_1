@@ -1,0 +1,225 @@
+// 將所有元素的預設邊距和內距設置為 0，並啟用盒模型
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 移除所有 ul 列表的預設項目符號
+ul {
+  list-style-type: none;
+}
+
+// 移除所有 a 鏈接的預設下劃線，並將文字顏色設為白色
+a {
+  text-decoration: none;
+  color: white;
+}
+
+// 設置按鈕的基本樣式
+.btn {
+  padding: 0.5rem 0.75rem; // 設置按鈕內距
+  border: none; // 移除邊框
+  margin: 1rem 0.5rem; // 設置外距
+  &:hover {
+    cursor: pointer; // 滑鼠懸停時顯示手型指標
+  }
+}
+
+// 設定整個頁面的背景顏色、文字顏色和字體
+body {
+  background-color: #003a45; // 設定背景顏色
+  color: white; // 設定文字顏色
+  font-family: "Baloo 2", cursive; // 使用 Google 字體
+
+  // 動畫包裹的區塊樣式
+  section.animation-wrapper {
+    position: fixed; // 固定位置
+    width: 100%;
+    height: 100vh; // 高度設置為視窗高度
+    background-color: white; // 背景顏色為白色
+
+    // 動畫區塊樣式
+    section.animation {
+      margin-top: 10vh; // 距離頂部 10% 視窗高度
+      height: 80vh; // 區塊高度為 80% 視窗高度
+      display: flex; // 使用 Flexbox
+      justify-content: center; // 水平置中
+      align-items: center; // 垂直置中
+
+      // hero 區塊樣式
+      .hero {
+        width: 100%; // 寬度為 100%
+        height: 0; // 初始高度為 0
+
+        img {
+          width: 100%; // 圖片寬度為 100%
+          height: 100%; // 圖片高度為 100%
+          object-fit: cover; // 圖片以 cover 方式縮放
+        }
+      }
+    }
+
+    // slider 區塊樣式，動畫預設放在最左側
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%; // 滿版寬度
+      height: 100vh; // 滿版高度
+      background: linear-gradient(to right, #c7e8fb, #018ccd); // 漸層背景
+      z-index: -1; // 設置 z-index，將其放在最底層
+    }
+  }
+
+  // header 樣式
+  header {
+    background-color: #002d35; // 設定背景顏色
+    nav {
+      box-shadow: 0 8px 6px -6px black; // 添加陰影效果
+      ul {
+        display: flex; // 使用 Flexbox 排列
+        li {
+          padding: 1rem; // 每個項目的內距
+          a {
+            font-size: 1.15rem; // 設置字體大小
+            transition: all 0.3s ease; // 添加過渡效果
+            &:hover {
+              color: yellow; // 滑鼠懸停時變成黃色
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // main 區塊樣式
+  main {
+    section.main-part {
+      padding: 1rem; // 設置內距
+      display: flex; // 使用 Flexbox
+      flex-direction: column; // 垂直排列
+      text-align: center; // 文字置中
+      align-items: center; // 元素置中
+      h1 {
+        font-size: 3rem; // 設置標題字體大小
+      }
+      p {
+        font-size: 1.15rem; // 設置段落字體大小
+      }
+
+      // 輸入欄位容器樣式
+      div.all-inputs {
+        width: 600px; // 設置固定寬度
+        form {
+          input,
+          select {
+            font-size: 1.05rem; // 設置字體大小
+            padding: 0.5rem; // 設置內距
+            border: 0.25px solid rgb(39, 39, 21); // 設置邊框
+            margin: 0.35rem; // 設置外距
+            border-radius: 0.25rem; // 設置圓角邊框
+          }
+
+          // 設置學分輸入框的寬度
+          input.class-credit {
+            width: 20%; // 寬度為 20%
+          }
+
+          // 分數輸入框的樣式
+          input.score-input {
+            width: 15%; // 寬度為 15%
+            font-size: 1.05rem; // 設置字體大小
+            padding: 0.5rem; // 設置內距
+            border: 0.25px solid rgb(39, 39, 21); // 設置邊框
+            margin: 0.35rem; // 設置外距
+            border-radius: 0.25rem; // 設置圓角邊框
+          }
+
+          // 按鈕樣式
+          button {
+            border: none; // 移除邊框
+            cursor: pointer; // 設置滑鼠為手型指標
+            background-color: #272727; // 背景顏色
+            i {
+              font-size: 1.25rem; // 圖標大小
+              pointer-events: none; // 禁用圖標指針事件
+              color: white; // 圖標顏色
+            }
+          }
+        }
+      }
+
+      // 新增課程按鈕樣式
+      button.plus-btn {
+        background-color: #272727; // 設置背景顏色
+        border: none; // 移除邊框
+        width: 2.5rem; // 設置按鈕寬度
+        margin: 3rem 0rem; // 設置外距
+        cursor: pointer; // 設置滑鼠為手型指標
+        i {
+          font-size: 2.5rem; // 圖標大小
+          color: white; // 圖標顏色
+        }
+      }
+
+      // GPA 結果顯示區塊樣式
+      div.result {
+        width: 200px; // 設置寬度
+        height: 200px; // 設置高度
+        border: 6px solid red; // 設置紅色邊框
+        border-radius: 50%; // 設置圓角，讓邊框變成圓形
+        text-align: center; // 文字置中
+        animation-name: border_color; // 設置邊框顏色動畫
+        animation-duration: 8s; // 動畫時長 8 秒
+        animation-iteration-count: infinite; // 動畫無限循環
+        p {
+          margin-top: 40px; // 設置段落的上外距
+        }
+        h2#result-gpa {
+          font-size: 3.5rem; // 設置 GPA 字體大小
+          font-weight: bold; // 設置字體粗細
+        }
+      }
+    }
+  }
+}
+
+// 用於移除元素的動畫樣式
+.remove {
+  transform: scale(0); // 縮放為 0
+  transition: all 0.5s ease; // 動畫時長 0.5 秒
+}
+
+// 製作放大動畫
+@keyframes scaleUp {
+  from {
+    transform: scale(0); // 初始縮放為 0
+  }
+  to {
+    transform: scale(1); // 最終縮放為 1
+  }
+}
+
+// 製作縮小動畫
+@keyframes scaleDown {
+  from {
+    transform: scale(1); // 初始縮放為 1
+  }
+  to {
+    transform: scale(0); // 最終縮放為 0
+  }
+}
+
+// 製作邊框顏色變化動畫
+@keyframes border_color {
+  0% {
+    border-color: red; // 起始邊框顏色為紅色
+  }
+  33% {
+    border-color: limegreen; // 33% 時變成亮綠色
+  }
+  66% {
+    border-color: yellow; // 66% 時變成黃色
+  }
+}
