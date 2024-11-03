@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>成績計算網站</title>
+    <!-- Cdn_Js => font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- 加入字體:google-font => Baloo2(Regular 400) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 連結css -->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <!-- 開場動畫 -->
+    <section class="animation-wrapper">
+      <section class="animation">
+        <div class="hero">
+          <img src="./school.jpg" alt="math image" />
+        </div>
+      </section>
+      <div class="slider"></div>
+    </section>
+
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">使用說明</a></li>
+          <!-- <li><a href="#">Terms of Service</a></li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="main-part">
+        <h1 >簡易成績計算</h1>
+
+        <div class="buttons">
+          <button class="btn sort-descending">降序排序</button>
+          <button class="btn sort-ascending">升序排序</button>
+          <button class="btn clean-data">清除資料</button>
+        </div>
+
+        <div class="all-inputs">
+          <form>
+            <!-- <form> 元素的主要功能是用來收集用戶輸入的資料，並將這些資料發送到伺服器進行處理。 -->
+
+            <!-- list="opt" 通常用於 <input> 元素，並與 <datalist> 元素結合使用，來提供可選項的下拉清單 -->
+
+            <!-- placeholder => 提示字 -->
+            <div class="grader">
+              <input
+                type="text"
+                placeholder="選擇科目"
+                class="class-type"
+                list="opt"
+              /><!--
+              --><!--
+              --><input
+                type="number"
+                placeholder="學分數"
+                min="0"
+                max="3"
+                class="class-credit"
+              /><!--
+              --><input
+                type="number"
+                name="score"
+                class="score-input"
+                min="0"
+                max="100"
+                placeholder="成績"
+              />
+              <!--
+              --><button class="trash-button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </form>
+          <form>
+            <div class="grader">
+              <input
+                type="text"
+                placeholder="選擇科目"
+                class="class-type"
+                list="opt"
+              /><!--
+              --><input
+                type="number"
+                placeholder="學分數"
+                min="0"
+                max="3"
+                class="class-credit"
+              /><!--
+              --><input
+                type="number"
+                name="score"
+                class="score-input"
+                min="0"
+                max="100"
+                placeholder="成績"
+              />
+              <!--
+              --><button class="trash-button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </form>
+          <form>
+            <div class="grader">
+              <input
+                type="text"
+                placeholder="選擇科目"
+                class="class-type"
+                list="opt"
+              /><!--
+              --><!--
+              --><input
+                type="number"
+                placeholder="學分數"
+                min="0"
+                max="3"
+                class="class-credit"
+              /><!--
+              --><input
+                type="number"
+                name="score"
+                class="score-input"
+                min="0"
+                max="100"
+                placeholder="成績"
+              />
+              <!--
+              --><button class="trash-button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <button type="button" class="plus-btn">
+          <i class="fas fa-plus-square"></i>
+        </button>
+
+        <div class="result">
+          <p id="gpa-text">你的平均分數是</p>
+          <h2 id="result-gpa">0.00</h2>
+        </div>
+      </section>
+    </main>
+
+    <datalist id="opt">
+      <option value="企業資源規劃">必 3 / 3</option>
+      <option value="資訊安全">必 3 / 3</option>
+      <option value="資訊管理實務專題">必 3 / 3</option>
+      <option value="生活美學">必 2 / 2</option>
+      <option value="人工智慧">選 3 / 3</option>
+      <option value="網路規劃與管理">選 3 / 3</option>
+      <option value="網路程式設計">選 3 / 3</option>
+    </datalist>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"
+      integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"
+      integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
